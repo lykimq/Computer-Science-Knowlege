@@ -1,51 +1,51 @@
-# Tìm kiếm nhị phân (Binary Search)
+# Binary Search
 
-Tìm kiếm nhị phân là thuật toán **chia để trị** trên một mảng đã được sắp xếp, bằng cách liên tục chia đôi khoảng tìm kiếm.
+Binary search is a **divide-and-conquer** algorithm applied to a sorted array by repeatedly cutting the search range in half.
 
-Ban đầu, không gian tìm kiếm là toàn bộ mảng. Giá trị mục tiêu được so sánh với phần tử ở giữa. Nếu chúng không bằng nhau, nửa không chứa mục tiêu sẽ bị loại bỏ. Quá trình tiếp tục trên nửa còn lại: lấy phần tử giữa, so sánh với mục tiêu, và lặp lại cho đến khi tìm thấy hoặc không còn phần tử nào để kiểm tra.
+At the start, the search space is the entire array. The target value is compared with the middle element. If they are not equal, the half that cannot contain the target is discarded. The process continues on the remaining half: take the middle element, compare it with the target, and repeat until the target is found or no elements remain.
 
-Nếu quá trình tìm kiếm kết thúc mà không gian còn lại trống, nghĩa là mục tiêu không tồn tại trong mảng.
+If the search ends with an empty search space, the target does not exist in the array.
 
-Độ phức tạp thời gian là **O(log n)** vì sau mỗi bước, không gian tìm kiếm thu hẹp đi một nửa.
+The time complexity is **O(log n)** because after each step, the search space is reduced by half.
 
-![Tìm kiếm nhị phân: Sức mạnh của chia để trị](Binary_Search_Algorithm_Explained.png)
+![Binary Search: The Power of Divide and Conquer](pics/Binary_Search_Algorithm_Explained.png)
 
-Hình minh họa trên cho thấy:
+The illustration above highlights:
 
-- **Mảng đã sắp xếp**: Thuật toán chỉ hoạt động đúng khi dữ liệu đầu vào đã được sắp xếp trước.
-- **So sánh và chia đôi**: So sánh mục tiêu với phần tử giữa, rồi loại bỏ nửa không liên quan.
-- **Điểm dừng**: Tìm kiếm kết thúc khi tìm thấy mục tiêu hoặc không còn phần tử nào để kiểm tra.
-- **Hiệu suất**: Không gian tìm kiếm thu hẹp 50% sau mỗi bước.
+- **Sorted array**: The algorithm works correctly only when the input data is sorted.
+- **Compare and split**: Compare the target with the middle element, then discard the irrelevant half.
+- **Stopping condition**: The search ends when the target is found or no elements remain to check.
+- **Efficiency**: The search space shrinks by 50% after each step.
 
-## Mã giả (Pseudocode)
+## Pseudocode
 
-Có hai cách viết tìm kiếm nhị phân: **lặp** (iterative) và **đệ quy** (recursive).
+Binary search can be written in two ways: **iterative** and **recursive**.
 
-### Cách lặp (Iterative)
+### Iterative Approach
 
 ```
 FUNCTION binarySearch(arr, target):
-    left  = 0                      // chi so dau
-    right = length(arr) - 1        // chi so cuoi
+    left  = 0                      // first index
+    right = length(arr) - 1        // last index
 
     WHILE left <= right:
         mid = left + floor((right - left) / 2)
 
         IF arr[mid] == target:
-            RETURN mid             // Tim thay muc tieu
+            RETURN mid             // target found
 
         ELSE IF arr[mid] < target:
-            left = mid + 1         // Loai bo nua trai (bao gom mid)
+            left = mid + 1         // discard left half (including mid)
 
         ELSE:
-            right = mid - 1        // Loai bo nua phai (bao gom mid)
+            right = mid - 1        // discard right half (including mid)
 
-    RETURN -1                      // Khong tim thay
+    RETURN -1                      // not found
 ```
 
-### Cách đệ quy (Recursive)
+### Recursive Approach
 
-Goi ban dau:
+Initial call:
 
 ```
 RETURN binarySearch(arr, target, 0, length(arr) - 1)
@@ -54,7 +54,7 @@ RETURN binarySearch(arr, target, 0, length(arr) - 1)
 ```
 FUNCTION binarySearch(arr, target, left, right):
     IF left > right:
-        RETURN -1                  // Khong tim thay
+        RETURN -1                  // not found
 
     mid = left + floor((right - left) / 2)
 
@@ -62,15 +62,15 @@ FUNCTION binarySearch(arr, target, left, right):
         RETURN mid
 
     ELSE IF arr[mid] < target:
-        RETURN binarySearch(arr, target, mid + 1, right)   // Tim o nua phai
+        RETURN binarySearch(arr, target, mid + 1, right)   // search in right half
 
     ELSE:
-        RETURN binarySearch(arr, target, left, mid - 1)    // Tim o nua trai
+        RETURN binarySearch(arr, target, left, mid - 1)    // search in left half
 ```
 
-## Lưu ý
+## Notes
 
-- Mảng phải được **sắp xếp** trước khi áp dụng tìm kiếm nhị phân.
-- Dùng `left + (right - left) / 2` thay vì `(left + right) / 2` để tránh tràn số khi `left` và `right` rất lớn.
-- Độ phức tạp thời gian: **O(log n)**.
-- Độ phức tạp không gian: **O(1)** với cách lặp, **O(log n)** với cách đệ quy (do ngăn xếp lời gọi).
+- The array must be **sorted** before applying binary search.
+- Use `left + (right - left) / 2` instead of `(left + right) / 2` to avoid integer overflow when `left` and `right` are very large.
+- Time complexity: **O(log n)**.
+- Space complexity: **O(1)** for the iterative approach, **O(log n)** for the recursive approach (due to the call stack).
