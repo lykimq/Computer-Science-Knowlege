@@ -68,3 +68,58 @@ Effects:
 - Reduces repeated ideas
 - Increases language diversity
 - Can make text sound unnatural if penalties are too strong
+
+## Common Terminology
+
+![Common Terminology](pics/Building_Blocks_of_Modern_AI.png)
+
+### Embeddings
+Embeddings are dense, continuous vector representations of data, such as words, sentences, or images, in a lower-dimensional space. 
+
+They capture the semantic relationships and patterns in the data, where similar items are placed closer together in the vector space. 
+
+In machine learning, embeddings are used to convert complex data into a numerical form that models can process more easily. 
+
+For example, word embeddings represent words based on their meanings and contexts, allowing models to understand relationships like synonyms or analogies. 
+
+Embeddings are widely used in tasks like natural language processing, recommendation systems, and image recognition to improve model performance and efficiency.
+
+### Vector DB
+
+Vector databases are specialized systems designed to store, index, and retrieve high-dimensional vectors, often used as embeddings that represent data like text, images, or audio. 
+
+Unlike traditional databases that handle structured data, vector databases excel at managing unstructured data by enabling fast similarity searches, where vectors are compared to find those that are most similar to a query. 
+
+This makes them essential for tasks like semantic search, recommendation systems, and content discovery, where understanding relationships between items is crucial. 
+
+Vector databases use indexing techniques such as approximate nearest neighbor (ANN) search to efficiently handle large datasets, ensuring quick and accurate retrieval even at scale.
+
+### RAG
+
+Retrieval-Augmented Generation (RAG) is an AI approach that combines information retrieval with language generation to create more accurate, contextually relevant outputs. 
+
+It works by first retrieving relevant data from a knowledge base or external source, then using a language model to generate a response based on that information. T
+
+his method enhances the accuracy of generative models by grounding their outputs in real-world data, making RAG ideal for tasks like question answering, summarization, and chatbots that require reliable, up-to-date information.
+
+![Embeddings-VectorDB-RAG](pics/Building_Blocks_of_Semantic_Intelligence.png)
+
+### Inference
+
+In AI, inference refers to the process by which a trained machine learning model makes predictions or draws conclusions from new, unseen data. 
+
+Unlike training, inference involves the model applying what it has learned to make decisions without needing examples of the exact result. 
+
+In essence, inference is the AI model actively functioning. 
+
+For example, a self-driving car recognizing a stop sign on a road it has never encountered before demonstrates inference. The model identifies the stop sign in a new setting, using its learned knowledge to make a decision in real-time.
+
+
+### Fine-tuning
+Fine-tuning involves taking a pre-trained LLM and further training it on a smaller, task-specific dataset. 
+
+This adapts the LLM to perform better on a particular task or domain. 
+
+However, fine-tuning can be resource-intensive and may not always be the most efficient approach. 
+
+Prompt engineering, retrieval-augmented generation (RAG), or using smaller, specialized models can sometimes achieve comparable or even better results with less computational overhead and data requirements.
