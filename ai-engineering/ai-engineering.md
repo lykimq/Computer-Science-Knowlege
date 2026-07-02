@@ -123,3 +123,79 @@ This adapts the LLM to perform better on a particular task or domain.
 However, fine-tuning can be resource-intensive and may not always be the most efficient approach. 
 
 Prompt engineering, retrieval-augmented generation (RAG), or using smaller, specialized models can sometimes achieve comparable or even better results with less computational overhead and data requirements.
+
+## Use Cases For Embeddings
+
+![Use Cases For Embeddings](pics/Core_Applications_of_Vector_Embeddings.png)
+
+### Semantic Search
+Embeddings are used for semantic search by converting text, such as queries and documents, into high-dimensional vectors that capture the underlying meaning and context, rather than just exact words. 
+
+These embeddings represent the semantic relationships between words or phrases, allowing the system to understand the query’s intent and retrieve relevant information, even if the exact terms don’t match.
+
+### Data Classification
+
+Once data is embedded, a classification algorithm, such as a neural network or a logistic regression model, can be trained on these embeddings to classify the data into different categories. 
+
+The advantage of using embeddings is that they capture underlying relationships and similarities between data points, even if the raw data is complex or high-dimensional, improving classification accuracy in tasks like text classification, image categorization, and recommendation systems.
+
+### Recommendation Systems
+
+In the context of embeddings, recommendation systems use vector representations to capture similarities between items, such as products or content. 
+
+By converting items and user preferences into embeddings, these systems can measure how closely related different items are based on vector proximity, allowing them to recommend similar products or content based on a user's past interactions. 
+
+This approach improves recommendation accuracy and efficiency by enabling meaningful, scalable comparisons of complex data.
+
+### Anomally Detection
+Anomaly detection with embeddings works by transforming data, such as text, images, or time-series data, into vector representations that capture their patterns and relationships. 
+
+In this high-dimensional space, similar data points are positioned close together, while anomalies stand out as those that deviate significantly from the typical distribution. 
+
+This approach is highly effective for detecting outliers in tasks like fraud detection, network security, and quality control.
+
+## Embedding Models
+
+### Proprietary Models
+- Open AI Embeddings API
+- Gemini Embedding
+- Cohere
+
+### Open Source Models
+- Sentence Transformers
+- Models on Hugging Face
+- Jina
+
+## Vector Databases
+
+Purpose and Functionality
+
+### Popular Vector DBs
+- Chroma
+- Pinecone
+- Weaviate
+- FAISS
+- LanceDB
+- Qdrant
+- Supabase
+- MongoDB Atlas
+
+### Implementing Vector Search
+- Indexing Embeddings
+- Performaing Similarity Search
+
+## RAG
+
+### Implementing RAG
+1. Chunking
+2. Embedding
+3. Vector DB
+4. Retrieval Process 
+5. Generation
+
+### Ways of Implementing RAG
+1. Using SDKs Directly
+2. LangChain
+3. Llama Index
+4. Haystack
+5/ RAGFlow
